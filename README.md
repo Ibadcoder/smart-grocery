@@ -20,7 +20,7 @@ A multi-screen mock-data grocery assistant prototype built with Flutter.
 You need Flutter with Dart 3.11.5 or newer.
 
 ### Setup & Execution
-1. **Clone the repository:**
+**Clone the repository:**
 ```bash
 git clone https://github.com/Ibadcoder/smart-grocery.git
 cd smart-grocery
