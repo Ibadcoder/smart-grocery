@@ -23,7 +23,7 @@ You need Flutter with Dart 3.11.5 or newer.
 1. **Clone the repository:**
 ```bash
 git clone https://github.com/Ibadcoder/smart-grocery.git
-cd smart_grocery
+cd smart-grocery
 flutter pub get
 flutter run
 ```
