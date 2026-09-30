@@ -11,6 +11,7 @@ import 'add_edit_item_screen.dart';
 class RootScreen extends StatefulWidget {
   const RootScreen({super.key});
 
+  /// Route name so detail screens pushed on top can pop back to the shell.
   static const String routeName = kRootRouteName;
 
   @override
@@ -40,7 +41,7 @@ class _RootScreenState extends State<RootScreen> {
 
   void _onNavSelected(int index) {
     if (index == kScanNavIndex) {
-      _openScanner();
+      _openScanner(); // Scan is a fullscreen dialog, not a tab.
       return;
     }
     AppShell.selectedTab.value = index;
@@ -58,7 +59,7 @@ class _RootScreenState extends State<RootScreen> {
             children: [
               const HomeDashboardScreen(),
               SmartChecklistScreen(onAddItem: _openAddItem),
-              const SizedBox.shrink(),
+              const SizedBox.shrink(), // Placeholder for Scan (opens as dialog).
               const InsightsScreen(),
               const ProfileSettingsScreen(),
             ],

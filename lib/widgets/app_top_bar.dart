@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import '../theme/app_theme.dart';
 
 class AppTopBar extends StatelessWidget implements PreferredSizeWidget {
+
   final VoidCallback? onBack;
 
   const AppTopBar({super.key, this.onBack});

@@ -15,7 +15,6 @@ class ScannerScreen extends StatelessWidget {
       backgroundColor: Colors.black,
       body: Stack(
         children: [
-          // Dark background (replaces missing asset)
           const Positioned.fill(child: ColoredBox(color: Color(0xFF1A1C1B))),
 
           // Radial gradient overlay

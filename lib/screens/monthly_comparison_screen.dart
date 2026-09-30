@@ -47,11 +47,6 @@ class MonthlyComparisonScreen extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        // The reference lays this row out on a ~400px canvas (max-w-md); on a
-        // 390pt phone the full-size h1 title and the segmented toggle can't
-        // both fit, so let the title scale down to fit rather than overflow.
-        // (Same FittedBox.scaleDown idiom the Home dashboard uses for its
-        // stat-card values.)
         Flexible(
           child: FittedBox(
             fit: BoxFit.scaleDown,

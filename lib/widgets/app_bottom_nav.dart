@@ -3,16 +3,23 @@ import 'package:flutter/material.dart';
 import '../theme/app_theme.dart';
 import '../screens/scanner_screen.dart';
 
+
 const String kRootRouteName = 'root';
 
+/// Index of the "Scan" destination, which opens a fullscreen dialog rather than
+/// selecting a tab.
 const int kScanNavIndex = 2;
 
+/// Holds the currently selected shell tab so that detail screens pushed on top
+/// of the shell (Reminders, Monthly Comparison) can switch tabs after popping.
 class AppShell {
   AppShell._();
 
+  /// Home=0, List=1, Scan=2 (dialog, never persisted), Insights=3, Profile=4.
   static final ValueNotifier<int> selectedTab = ValueNotifier<int>(0);
 }
 
+/// A single destination in the bottom navigation bar.
 class AppNavItem {
   final IconData icon;
   final IconData selectedIcon;
@@ -25,6 +32,7 @@ class AppNavItem {
   });
 }
 
+/// The five destinations, matching the design reference order and labels.
 const List<AppNavItem> kAppNavItems = [
   AppNavItem(
     icon: Icons.home_outlined,
@@ -53,6 +61,10 @@ const List<AppNavItem> kAppNavItems = [
   ),
 ];
 
+/// Handles a nav tap from a detail screen pushed on top of the shell.
+///
+/// Scan opens the scanner over the current screen; any tab selection updates
+/// [AppShell.selectedTab] and pops back to the shell so the tab is shown.
 void handleShellNavFromDetail(BuildContext context, int index) {
   if (index == kScanNavIndex) {
     Navigator.of(context).push(
@@ -70,6 +82,11 @@ void handleShellNavFromDetail(BuildContext context, int index) {
   ).popUntil((route) => route.settings.name == kRootRouteName || route.isFirst);
 }
 
+/// The single, shared bottom navigation bar used across every shell screen.
+///
+/// It is purely presentational: [currentIndex] highlights a destination and
+/// [onDestinationSelected] reports taps. Matches the Stitch design reference —
+/// a white, top-rounded bar with a pastel-green pill behind the active item.
 class AppBottomNav extends StatelessWidget {
   final int currentIndex;
   final ValueChanged<int> onDestinationSelected;

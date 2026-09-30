@@ -70,13 +70,7 @@ class RemindersNotificationsScreen extends StatelessWidget {
               time: '2h ago',
               description:
                   "Based on your history, you're likely running low on 2% Dairy Milk. Add it to your list?",
-              // Cap text scaling on just these two action buttons: at 320px a
-              // 1.3x OS font makes "Add to list" + content-width "Dismiss" too
-              // wide to sit single-line side by side, squeezing the Expanded
-              // primary narrower than Dismiss (and silently clipping its label).
-              // Clamping the buttons' scale to 1.05x keeps both single-line with
-              // the primary wider than Dismiss, while the rest of the screen still
-              // honours the full OS text scale.
+             
               actions: MediaQuery(
                 data: MediaQuery.of(context).copyWith(
                   textScaler: MediaQuery.textScalerOf(
@@ -91,13 +85,7 @@ class RemindersNotificationsScreen extends StatelessWidget {
                           backgroundColor: colorScheme.primary,
                           foregroundColor: colorScheme.onPrimary,
                           elevation: 0,
-                          // Reference: flex-1, h-10 (40px), text-[14px], px-md
-                          // py-2, rounded-full. The reference's 20px (md)
-                          // horizontal padding can't fit "Add to list" on one line
-                          // inside the Expanded slot at 320px (once content-width
-                          // "Dismiss" + gap are subtracted), so it ballooned. Use
-                          // sm (12px) padding — the widest token that keeps it
-                          // single line at 320px — and pin maxLines: 1.
+                   
                           textStyle: textTheme.labelMedium,
                           minimumSize: const Size(0, 40),
                           padding: const EdgeInsets.symmetric(
@@ -118,11 +106,7 @@ class RemindersNotificationsScreen extends StatelessWidget {
                         backgroundColor: colorScheme.surfaceContainer,
                         foregroundColor: colorScheme.onSurfaceVariant,
                         elevation: 0,
-                        // Reference: natural width, h-10 (40px), text-[14px],
-                        // px-md py-2, rounded-full. Matches the primary's sm (12px)
-                        // horizontal padding so the two pills stay visually
-                        // consistent and Dismiss stays compact (narrower than the
-                        // Expanded primary) at 320px.
+                    
                         textStyle: textTheme.labelMedium,
                         minimumSize: const Size(0, 40),
                         padding: const EdgeInsets.symmetric(
@@ -208,12 +192,7 @@ class RemindersNotificationsScreen extends StatelessWidget {
             const SizedBox(height: AppSpacing.marginMobile),
 
             // Promo Card
-            //
-            // Min-height (not fixed height) so the banner keeps its 200px look at
-            // normal text scale but grows to fit its content under a large text
-            // scale instead of throwing a bottom overflow. The reference uses a
-            // responsive aspect-[16/9] rather than a fixed height; growing is
-            // friendlier than clipping the promo copy.
+           
             ConstrainedBox(
               constraints: const BoxConstraints(minHeight: 200),
               child: Stack(
@@ -232,9 +211,7 @@ class RemindersNotificationsScreen extends StatelessWidget {
                       ),
                     ),
                   ),
-                  // Dark scrim so the white promo text stays legible over the
-                  // photo (the original darkened the image via a ColorFilter);
-                  // mirrors the bottom-gradient scrim used by the other banners.
+              
                   Positioned.fill(
                     child: DecoratedBox(
                       decoration: BoxDecoration(
@@ -274,14 +251,6 @@ class RemindersNotificationsScreen extends StatelessWidget {
                           style: ElevatedButton.styleFrom(
                             backgroundColor: colorScheme.surfaceContainerLowest,
                             foregroundColor: colorScheme.primary,
-                            // Reference: font-button text-[14px] px-md py-2
-                            // rounded-full, no fixed height. Without these
-                            // overrides the button inherits the global
-                            // elevatedButtonTheme's 56px min height + 16px
-                            // labelLarge (height 1.5), whose proportional leading
-                            // parks the label below center. 14px labelMedium + a
-                            // 40px min height (matching the sibling notification
-                            // pills) let the text center in a snug pill.
                             textStyle: textTheme.labelMedium,
                             minimumSize: const Size(0, 40),
                             padding: const EdgeInsets.symmetric(

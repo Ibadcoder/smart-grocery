@@ -87,12 +87,7 @@ class _ProfileSettingsScreenState extends State<ProfileSettingsScreen> {
             // App Preferences
             _buildSectionTitle(context, 'App Preferences'),
             const SizedBox(height: AppSpacing.sm),
-            // Wrapped in a Material (not a decorated Container) so the
-            // ListTiles below have a Material ancestor to paint their ink /
-            // tile background on — a bare colored Container would hide those
-            // effects (ListTile._debugCheckBackgroundIsHidden). The Material's
-            // shape carries the card's fill, radius-16, and subtle border, and
-            // clipBehavior gives the reference's `rounded-xl overflow-hidden`.
+
             Material(
               color: colorScheme.surfaceContainerLowest,
               clipBehavior: Clip.antiAlias,

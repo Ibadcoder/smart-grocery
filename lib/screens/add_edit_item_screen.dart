@@ -13,6 +13,7 @@ class AddEditItemScreen extends StatefulWidget {
 }
 
 class _AddEditItemScreenState extends State<AddEditItemScreen> {
+  /// The item being edited. Prototype seed only — no persistence.
   static const GroceryItem _editingItem = GroceryItem(
     name: '',
     quantity: '2',

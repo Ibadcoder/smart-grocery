@@ -410,7 +410,7 @@ class InsightsScreen extends StatelessWidget {
                       ),
                     ),
                     const SizedBox(height: AppSpacing.md),
-
+                  
                     Row(
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
@@ -446,10 +446,7 @@ class InsightsScreen extends StatelessWidget {
                               foregroundColor: colorScheme.tertiary,
                               side: BorderSide(color: colorScheme.tertiary),
                               textStyle: textTheme.labelMedium, // text-sm 14px
-                              minimumSize: const Size(
-                                0,
-                                0,
-                              ), // defeat default min
+                              minimumSize: const Size(0, 0), // defeat default min
                               padding: const EdgeInsets.symmetric(
                                 horizontal: AppSpacing.base,
                                 vertical: AppSpacing.base,

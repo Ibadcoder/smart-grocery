@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+/// Standardized spacing tokens based on the fluid grid model.
 class AppSpacing {
   static const double xs = 4.0;
   static const double base = 8.0;
@@ -12,6 +13,7 @@ class AppSpacing {
   static const double marginMobile = 24.0;
 }
 
+/// Standardized border radii for the rounded shape philosophy.
 class AppRadius {
   static const BorderRadius sm = BorderRadius.all(Radius.circular(4.0));
   static const BorderRadius standard = BorderRadius.all(Radius.circular(8.0));
@@ -21,7 +23,9 @@ class AppRadius {
   static const BorderRadius full = BorderRadius.all(Radius.circular(9999.0));
 }
 
+/// The core design system and Material 3 theme for Smart Grocery.
 class AppTheme {
+  /// Defines the light color scheme based on soft neutrals and pastel accents.
   static const ColorScheme _lightColorScheme = ColorScheme(
     brightness: Brightness.light,
     primary: Color(0xFF3A6758),
@@ -56,7 +60,7 @@ class AppTheme {
     surfaceTint: Color(0xFF3A6758),
   );
 
-  ///
+  /// Builds the Plus Jakarta Sans text theme.
   static TextTheme _buildTextTheme() {
     return GoogleFonts.plusJakartaSansTextTheme().copyWith(
       displayLarge: GoogleFonts.plusJakartaSans(
@@ -96,6 +100,7 @@ class AppTheme {
     );
   }
 
+  /// The complete light theme data to be provided to MaterialApp.
   static ThemeData get lightTheme {
     final textTheme = _buildTextTheme();
 
@@ -110,7 +115,6 @@ class AppTheme {
         style: ElevatedButton.styleFrom(
           backgroundColor: _lightColorScheme.primaryContainer,
           foregroundColor: _lightColorScheme.onPrimaryContainer,
-
           minimumSize: const Size(64, AppSpacing.touchTarget),
           shape: const RoundedRectangleBorder(borderRadius: AppRadius.full),
           textStyle: textTheme.labelLarge,
@@ -118,6 +122,7 @@ class AppTheme {
         ),
       ),
 
+      // Input Decoration Theme
       inputDecorationTheme: InputDecorationTheme(
         filled: true,
         fillColor: _lightColorScheme.surfaceContainer,
@@ -140,6 +145,7 @@ class AppTheme {
         ),
       ),
 
+      // Checkbox Theme
       checkboxTheme: CheckboxThemeData(
         shape: const RoundedRectangleBorder(borderRadius: AppRadius.sm),
         fillColor: WidgetStateProperty.resolveWith<Color>((states) {
@@ -152,6 +158,7 @@ class AppTheme {
         splashRadius: 24,
       ),
 
+      // Card Theme (Fixed CardThemeData Error)
       cardTheme: CardThemeData(
         color: _lightColorScheme.surfaceContainerLowest,
         elevation: 1,

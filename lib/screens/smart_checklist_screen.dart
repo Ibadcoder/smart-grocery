@@ -8,6 +8,8 @@ class SmartChecklistScreen extends StatelessWidget {
 
   const SmartChecklistScreen({super.key, required this.onAddItem});
 
+  /// Sample grocery data grouped into the on-screen categories.
+  /// Prototype only — no persistence.
   static const List<GroceryItem> _sampleItems = [
     GroceryItem(
       name: "Organic Spinach",
@@ -36,7 +38,8 @@ class SmartChecklistScreen extends StatelessWidget {
           title: item.name,
           subtitle: item.quantity,
           isChecked: item.checked,
-
+          // Only "Organic Spinach" shows an expanded quantity stepper, as in
+          // the original layout; showStepper is presentation, not item data.
           showStepper: item.name == "Organic Spinach",
           quantity: 2,
           onCheckedChange: () {},
@@ -50,7 +53,8 @@ class SmartChecklistScreen extends StatelessWidget {
     final colorScheme = theme.colorScheme;
 
     return Scaffold(
-      backgroundColor: Colors.transparent,
+      backgroundColor:
+          Colors.transparent, // Transparent so Root background shows through
       floatingActionButton: FloatingActionButton(
         onPressed: onAddItem,
         backgroundColor: colorScheme.primary,
@@ -65,6 +69,7 @@ class SmartChecklistScreen extends StatelessWidget {
           children: [
             const SizedBox(height: AppSpacing.lg),
 
+            // Frequently Bought Header
             Padding(
               padding: const EdgeInsets.symmetric(
                 horizontal: AppSpacing.marginMobile,
@@ -79,6 +84,7 @@ class SmartChecklistScreen extends StatelessWidget {
 
             const SizedBox(height: AppSpacing.md),
 
+            // Frequently Bought Chips (Horizontal Scroll)
             SingleChildScrollView(
               scrollDirection: Axis.horizontal,
               padding: const EdgeInsets.symmetric(
@@ -266,6 +272,7 @@ class CategorySection extends StatelessWidget {
   }
 }
 
+// Translated GroceryListItem to match the Jetpack Compose version
 class GroceryListItem extends StatelessWidget {
   final String title;
   final String subtitle;
